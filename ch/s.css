@@ -1,0 +1,70 @@
+:root {
+    --color-black: #000000;
+}
+
+body {
+    font-size: 70px;
+    font-family: 'Arial Black', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.schoolnumber {
+    left: 20px;
+    background: linear-gradient(45deg, #8B5CF6, #EC4899);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+    padding: 0 5px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
+                     0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.8),
+                     0 0 30px rgba(139, 92, 246, 0.5),
+                     0 0 40px rgba(139, 92, 246, 0.3);
+    }
+}
+
+.schoolnumber::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #8B5CF6, #EC4899) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
