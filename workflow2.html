@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 內容行銷實戰 Canvas</title>
+    <!-- 引入 Tailwind CSS (美化樣式) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide Icons (圖示) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* 簡單的過場動畫 */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-slate-800 p-4 md:p-8 min-h-screen">
+
+    <!-- Header -->
+    <header class="mb-8 text-center md:text-left max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold text-slate-900 flex items-center justify-center md:justify-start gap-3">
+            <i data-lucide="book-open" class="text-blue-600"></i>
+            SEO實戰操作
+        </h1>
+        <p class="text-slate-500 mt-2 max-w-3xl">
+            這是 SEO 寫作的基礎要點。請依序點擊上方流程，完成每個階段的任務檢核。 
+            目標：結合 AI 效率與 SEO 專業，產出高排名文章。
+        </p>
+    </header>
+
+    <!-- Navigation (上方流程按鈕) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 max-w-7xl mx-auto" id="nav-container">
+        <!-- 按鈕會由 JavaScript 自動生成 -->
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        
+        <!-- Left Column: 說明與工具 -->
+        <div class="lg:col-span-2 space-y-6 fade-in" id="content-left">
+            
+            <!-- 階段目標卡片 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="target" class="text-slate-400"></i>
+                    <h2 class="text-xl font-bold text-slate-800">階段目標</h2>
+                </div>
+                <p class="text-lg text-slate-600 leading-relaxed" id="stage-description">
+                    <!-- 內容由 JS 填充 -->
+                </p>
+                
+                <div class="mt-6">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">必備工具箱</h3>
+                    <div class="flex flex-wrap gap-2" id="stage-tools">
+                        <!-- 工具由 JS 填充 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- New: 結構化指令範本 (僅在 Stage 2 顯示) -->
+            <div id="prompt-template-card" class="bg-purple-100 p-6 rounded-2xl border border-purple-200 hidden">
+                <div class="flex items-center gap-2 mb-4 text-purple-800">
+                    <i data-lucide="mouse-pointer" class="w-5 h-5"></i>
+                    <h2 class="font-bold text-lg">AI 結構化指令範本 (直接複製貼上)</h2>
+                </div>
+                <pre id="prompt-template-text" class="whitespace-pre-wrap font-mono text-sm bg-white p-4 rounded-lg border border-purple-300 text-purple-900 leading-relaxed"></pre>
+            </div>
+
+
+            <!-- 專家觀點卡片 -->
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                <div class="flex items-center gap-2 mb-4 text-blue-700">
+                    <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                    <h2 class="font-bold text-lg">專家觀點 (來自內部教材)</h2>
+                </div>
+                <ul class="space-y-3" id="stage-tips">
+                    <!-- Tips 由 JS 填充 -->
+                </ul>
+            </div>
+
+            <!-- 參考文件來源 -->
+            <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="file-text" class="text-slate-400"></i>
+                    <div>
+                        <p class="text-sm font-medium text-slate-900">參考文件來源</p>
+                        <p class="text-xs text-slate-500">Google的評分機制.pdf / 讓文章更有 SEO 優勢的 7 個重點.pdf</p>
+                    </div>
+                </div>
+                <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-500">Internal Only</span>
+            </div>
+        </div>
+
+        <!-- Right Column: 執行清單 -->
+        <div class="lg:col-span-1 fade-in">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 sticky top-8">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-square" class="text-green-600"></i>
+                        <h2 class="text-xl font-bold text-slate-800">執行清單</h2>
+                    </div>
+                    <span class="text-sm font-bold text-slate-400" id="progress-text">0% 完成</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-100 rounded-full h-2 mb-6">
+                    <div id="progress-bar" class="h-2 rounded-full transition-all duration-500 bg-blue-500" style="width: 0%"></div>
+                </div>
+
+                <!-- Tasks Container -->
+                <div class="space-y-3" id="tasks-container">
+                    <!-- Checkboxes 由 JS 填充 -->
+                </div>
+
+                <!-- Footer Warning -->
+                <div class="mt-6 pt-6 border-t border-slate-100 flex gap-2 text-xs text-slate-400">
+                    <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+                    <p>請務必逐項確認，避免遺漏 SEO 關鍵要素。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 資料設定 (Data) ---
+        const workflowStages = [
+            {
+                id: 'research',
+                title: '1. 靈感、關鍵字與素材準備',
+                icon: 'search',
+                color: 'bg-blue-500',
+                border: 'border-blue-500',
+                description: '決定文章的「搜尋意圖」與「流量潛力」，並預先蒐集所有 AI 產出所需的內外部素材。',
+                tools: ['Ubersuggest', 'Google Keyword Planner', '內部媒體庫', '廠商資料表'],
+                tasks: [
+                    { text: '確認核心關鍵字、長尾關鍵字與目標受眾 (Persona)', key: 'r1' },
+                    { text: '決定文章標題 (關鍵字放最前面, 15-30字)', key: 'r2' },
+                    { text: '蒐集內部連結 (延伸閱讀) URL 至少 2 個', key: 'r3' },
+                    { text: '蒐集外部連結 (資料來源/引用) URL 至少 2 個', key: 'r4' },
+                    { text: '準備圖片URL (上傳媒體庫取得) 及 影片URL (若適用)', key: 'r5' },
+                    { text: '準備廠商導購或聯絡資訊 (URL/文字)', key: 'r6' }
+                ],
+                tips: [
+                    '標題範例：「潛水裝備推薦 | 新手指南」 (O) vs 「新手也能懂的裝備」(X)',
+                    '預先準備連結能確保 AI 產出內容時，直接將高權重連結埋入。'
+                ]
+            },
+            {
+                id: 'generation',
+                title: '2. 結構化指令與 AI 生成',
+                icon: 'cpu',
+                color: 'bg-purple-500',
+                border: 'border-purple-500',
+                description: '結合所有預備素材，透過精確的結構化指令，讓 AI 一次到位產出高優先級集群內容。',
+                tools: ['Gemini (Canvas Mode)', 'NotebookLM (知識庫)'],
+                tasks: [
+                    { text: '建立知識庫：將資料餵給 NotebookLM (確保知識正確)', key: 'g1' },
+                    { text: '使用「AI 結構化指令範本」並提供所有素材給 AI', key: 'g2' },
+                    { text: '初步預覽確認 AI 輸出的內容和 HTML 格式是否完整', key: 'g3' }
+                ],
+                // 結構化指令範本
+                promptTemplate: `
+以「[輸入主要關鍵字]」為主要關鍵字，寫一篇 SEO 友善的標題後，開始撰寫一篇高優先級的集群內容文章。
+
+文章內容要有以下結構與要求：
+
+(1) 在內容中建構至少2個對外連結。
+(2) 包含 常見問題(FAQ)快速問答區塊。
+(3) 將適當的資訊整理成圖或表，如比較表或趨勢圖等。
+(4) 包含 廠商導購或聯絡資訊。
+(5) 以 Canvas 模式提供 HTML。
+(6) 提供 描述標籤，需含主要關鍵字。
+(7) 字數約 2000 字。
+(8) H2/H3 標題必須含有主要關鍵字。
+`,
+                tips: [
+                    'Prompt 技巧：指定角色 (你是一位...)、指定格式 (Markdown)、指定語氣 (口語化)。',
+                    '當 AI 產出圖表時，應再次檢查資料的正確性。',
+                    '網頁先前已下過指令兼具外觀、互動性及保有SEO的AI指命。'
+                ]
+            },
+            {
+                id: 'optimization',
+                title: '3. WordPress 內容佈局與發布',
+                icon: 'settings',
+                color: 'bg-green-500',
+                border: 'border-green-500',
+                description: '將 AI 產出的 HTML 內容，以「自訂 HTML」方式新增至 WordPress 文章，並進行發布前的最終檢查。',
+                tools: ['WordPress 自訂 HTML 區塊', 'Rank Math (最終檢查)'],
+                tasks: [
+                    { text: '建立新的 WordPress 文章，並切換到「自訂 HTML」模式', key: 'o1' },
+                    { text: '將 AI 輸出的 HTML 程式碼完整貼入編輯器中', key: 'o2' },
+                    // FIX: 在 o7 任務後加上了逗號，讓 JS 陣列語法正確
+                    { text: '上傳精選圖片和遠端圖片', key: 'o4' },
+                    { text: '將 AI 輸出的標題和描述標籤貼到Rank Math', key: 'o5' },
+                    { text: '確認圖片、影片、內/外部連結都能正常顯示與點擊', key: 'o6' },
+                    { text: '點擊發布並確認文章上線後外觀無誤', key: 'o7' }, 
+                    { text: '提交由Google Console審核', key: 'o3' } // 用戶新增的項目
+                ],
+                tips: [
+                    'WordPress 貼上 HTML 後，需確認排版是否跑掉。',
+                    '發布後應立即檢查行動裝置 (Mobile) 上的顯示效果。',
+                ]
+            },
+            {
+                id: 'promotion',
+                title: '4. 文章宣傳擴散',
+                icon: 'share-2',
+                color: 'bg-orange-500',
+                border: 'border-orange-500',
+                description: '主動導流，增加網站權重與流量。',
+                tools: ['Facebook', 'Dcard', 'Instagram', 'EDM'],
+                tasks: [
+                    { text: 'AI 改寫：將長文轉為 FB 貼文 / IG 限動 (素材優化)', key: 'p1' },
+                    { text: '社群發布：搭配吸睛圖片，引導點擊連結', key: 'p2' },
+                    { text: '爭取反向連結：投稿或其他媒體引用', key: 'p3' },
+                    { text: '數據追蹤：觀察 GA4 流量來源與停留時間', key: 'p4' }
+                ],
+                tips: [
+                    '不要只貼連結，要寫一段「懶人包」或「引起好奇」的引言。',
+                    '利用時事梗或熱門話題 (借勢行銷) 來包裝舊文章。'
+                ]
+            }
+        ];
+
+        // --- 狀態管理 ---
+        let currentStageIndex = 0;
+        let checkedItems = {}; // 存儲打勾狀態 { 'r1': true, 'r2': false }
+
+        // --- 初始化 ---
+        function init() {
+            // 從 localStorage 載入狀態 (如果有的話)
+            const savedState = JSON.parse(localStorage.getItem('seoWorkflowState'));
+            if (savedState) {
+                currentStageIndex = savedState.index || 0;
+                checkedItems = savedState.items || {};
+            }
+
+            renderNav();
+            renderStage(currentStageIndex);
+            lucide.createIcons();
+        }
+
+        // --- 儲存狀態 ---
+        function saveState() {
+            localStorage.setItem('seoWorkflowState', JSON.stringify({
+                index: currentStageIndex,
+                items: checkedItems
+            }));
+        }
+
+        // --- 渲染導航按鈕 ---
+        function renderNav() {
+            const navContainer = document.getElementById('nav-container');
+            navContainer.innerHTML = workflowStages.map((stage, index) => {
+                const isActive = index === currentStageIndex;
+                const activeClass = isActive ? `bg-white shadow-lg scale-105 ${stage.border}` : 'border-transparent bg-white/50 hover:bg-white hover:shadow-md';
+                
+                return `
+                    <button onclick="switchStage(${index})" 
+                        class="relative p-4 rounded-xl border-2 transition-all duration-300 flex flex-col items-center md:items-start gap-2 ${activeClass} text-left w-full">
+                        <div class="p-3 rounded-full text-white ${stage.color} shadow-sm">
+                            <i data-lucide="${stage.icon}"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800">${stage.title}</h3>
+                        ${isActive ? '<div class="absolute -bottom-2 left-1/2 md:left-8 transform -translate-x-1/2 w-4 h-4 bg-white border-r-2 border-b-2 rotate-45 z-10 border-inherit"></div>' : ''}
+                    </button>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        // --- 切換階段 ---
+        function switchStage(index) {
+            currentStageIndex = index;
+            saveState(); // 切換階段時也儲存
+            renderNav();
+            renderStage(index);
+            
+            // 觸發淡入動畫
+            document.getElementById('content-left').classList.remove('fade-in');
+            void document.getElementById('content-left').offsetWidth; // trigger reflow
+            document.getElementById('content-left').classList.add('fade-in');
+        }
+
+        // --- 渲染主要內容 ---
+        function renderStage(index) {
+            const stage = workflowStages[index];
+
+            // 1. 填充目標與描述
+            document.getElementById('stage-description').innerText = stage.description;
+            
+            // 2. 填充工具
+            document.getElementById('stage-tools').innerHTML = stage.tools.map(tool => 
+                `<span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-medium border border-slate-200">${tool}</span>`
+            ).join('');
+
+            // 3. 處理結構化指令範本 (僅在 Stage 2 顯示)
+            const promptCard = document.getElementById('prompt-template-card');
+            const promptText = document.getElementById('prompt-template-text');
+            
+            if (stage.id === 'generation' && stage.promptTemplate) {
+                promptText.innerText = stage.promptTemplate.trim();
+                promptCard.classList.remove('hidden');
+            } else {
+                promptCard.classList.add('hidden');
+            }
+
+
+            // 4. 填充 Tips
+            document.getElementById('stage-tips').innerHTML = stage.tips.map(tip => `
+                <li class="flex items-start gap-3 text-blue-800">
+                    <span class="mt-1.5 w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0"></span>
+                    <span>${tip}</span>
+                </li>
+            `).join('');
+
+            // 5. 渲染 Checkbox 列表
+            renderTasks(stage);
+            
+            // 6. 更新進度條顏色 (配合階段顏色)
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.className = `h-2 rounded-full transition-all duration-500 ${stage.color}`;
+            
+            lucide.createIcons();
+        }
+
+        // --- 渲染任務列表與計算進度 ---
+        function renderTasks(stage) {
+            const tasksContainer = document.getElementById('tasks-container');
+            
+            // 計算進度
+            const totalTasks = stage.tasks.length;
+            const completedTasks = stage.tasks.filter(t => checkedItems[t.key]).length;
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+
+            // 更新進度文字與長度
+            document.getElementById('progress-text').innerText = `${percentage}% 完成`;
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+            // 生成 HTML
+            tasksContainer.innerHTML = stage.tasks.map(task => {
+                const isChecked = !!checkedItems[task.key];
+                return `
+                    <div onclick="toggleTask('${task.key}')" 
+                        class="flex items-start gap-3 p-3 rounded-xl transition-all cursor-pointer border hover:shadow-sm select-none
+                        ${isChecked ? 'bg-green-50 border-green-200' : 'bg-white border-slate-100 hover:border-blue-200'}">
+                        
+                        <div class="relative flex items-center mt-1">
+                            <div class="h-5 w-5 rounded-md border transition-all flex items-center justify-center
+                                ${isChecked ? 'bg-green-500 border-green-500' : 'border-slate-300 bg-white'}">
+                                ${isChecked ? '<i data-lucide="check" class="text-white w-3.5 h-3.5"></i>' : ''}
+                            </div>
+                        </div>
+                        
+                        <span class="text-sm leading-snug ${isChecked ? 'text-green-800 font-medium line-through' : 'text-slate-600'}">
+                            ${task.text}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+            
+            lucide.createIcons();
+        }
+
+        // --- 切換任務狀態 ---
+        window.toggleTask = function(key) {
+            checkedItems[key] = !checkedItems[key];
+            // 重新渲染當前階段的任務列表以更新 UI
+            renderTasks(workflowStages[currentStageIndex]);
+            saveState(); // 每次點擊都儲存狀態
+        };
+
+        // 啟動!
+        init();
+    </script>
+</body>
+</html>
