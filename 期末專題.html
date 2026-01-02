@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" >
+         </script>
+         <title>我的澎湖打工換宿日記</title>
+        <style>
+        body {font-family: 'Inter', sans-serif; background-color: #f0f7ff;}
+        .section-padding {padding: 6rem 0;}
+        .hero-section {
+            padding-top: 100px; 
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289821_0.jpg"); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); 
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        .island-item img {
+            max-height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+        </style>
+    </head>
+
+        <!--導覽列-->
+        <nav class="navbar navbar-light bg-light navbar-wxpand-md fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">我的澎湖打工換宿日記</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <u1 class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#island-hopping"
+                        data-bs-toggle="dropdown">跳島行程介紹</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#sifang-nan-dao">四方南島</a>
+                            <a class="dropdown-item" href="#tongpan-hujing">桶盤虎井</a>
+                            <a class="dropdown-item" href="#jibei">吉貝島嶼</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#daily-life">本島人文與秘境</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#food-notes">澎湖美食筆記</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#food-notes">打工換宿日記</a>
+                    </li>
+                </u1>
+                <form class="d-flex">
+                    <input class="from-control me-2" type="search" placeholder="搜尋">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        
+        <!--內容區-->
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-2 fw-bolder">當觀光客變成了島民</h1>
+            <p class="lead mt-3">一段深入澎湖，從換宿小幫手視角出發的深度旅行筆記。</p>
+            <a href="#island-hopping" class="btn btn-warning btn-lg mt-4 shadow-lg rounded-pill">開始探索 <i class="bi bi-arrow-right-circle-fill ms-2"></i></a>
+        </div>
+    </section>
+
+    <section id="island-hopping" class="section-padding bg-white">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-primary mb-5"><i class="bi bi-compass-fill me-2"></i>跳島行程介紹</h2>
+            <p class="text-center lead mb-5">在澎湖，跳島是必須的浪漫！以下是我親自出海，見證每個島嶼獨特風貌的精彩旅程。</p>
+
+            <div id="sifang-nan-dao" class="row align-items-center mb-5 border-bottom pb-5 island-item">
+                <div class="col-md-6 order-md-1">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292812_0.jpg" class="img-fluid rounded-3 shadow-sm" onerror="this.src='https://placehold.co/600x400/0dcaf0/ffffff?text=Image+Loading+Error';" alt="四方南島水上活動">
+                </div>
+                <div class="col-md-6 order-md-2 mt-4 mt-md-0">
+                    <h3 class="fw-bold text-info">四方南島的藍色傳說</h3>
+                    <span class="badge bg-info mb-3 me-2">#東吉嶼探險</span>
+                    <span class="badge bg-primary mb-3">#海鮮粥吃到飽</span>
+                    <p>這趟旅程的重點在於未經人工雕琢的東吉嶼與西吉嶼。我們參加了包含水上活動的團體，更令人驚喜的是，還能吃到熱騰騰的海鮮粥！在前往東吉嶼的路上，會驚嘆於西吉嶼神秘的藍洞，那片藍色的海域簡直是人間仙境。</p>
+                    <p class="small text-muted border-top pt-2 mt-3">在東吉嶼的土地上，放眼望去皆是無邊無際的湛藍。島上那歷史悠久的東吉嶼燈塔和日本遺址，見證了海島的滄桑歲月，值得細細品味。</p>
+                    <a href="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292840_0.jpg" target="_blank" class="btn btn-sm btn-outline-info mt-2">查看美味海鮮粥</a>
+                </div>
+            </div>
+
+            <!-- 跳島:桶盤虎井-->
+            <div id="tongpan-hujing" class="row align-items-center mb-5 border-bottom pb-5 island-item">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289816_0.jpg" class="img-fluid rounded-3 shadow-sm" onerror="this.src='https://placehold.co/600x400/ffc107/000000?text=Image+Loading+Error';" alt="桶盤玄武岩景色">
+                </div>
+                <div class="col-md-6 order-md-1 mt-4 mt-md-0">
+                    <h3 class="fw-bold text-warning">桶盤虎井：地質奇觀與羊比人多</h3>
+                    <span class="badge bg-warning text-dark mb-3 me-2">#澎湖最美小島</span>
+                    <span class="badge bg-secondary text-dark mb-3">#橫跨北迴歸線</span>
+                    <p>桶盤嶼是我心中「最漂亮的小島」，走在它那一山一海的小徑上，海風輕拂，真的令人感動萬分。而桶盤最著名的，當然是那氣勢磅礡、猶如神斧劈鑿的"玄武岩柱"。</p>
+                    <p>接著來到虎井嶼，這裡的羊群數量可能比島民還多！虎井島還有一座特別的"北迴歸線地標"，象徵著地理上的重要分界。這兩個島嶼，一個是地質的震撼，一個是悠閒的田園氣息。</p>
+                    <a href="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292810_0.jpg" target="_blank" class="btn btn-sm btn-outline-warning mt-2">查看虎井羊群照片</a>
+                </div>
+            </div>
+
+            <div id="jibei" class="row align-items-center island-item">
+                <div class="col-md-6 order-md-1">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289814_0.jpg" class="img-fluid rounded-3 shadow-sm" onerror="this.src='https://placehold.co/600x400/28a745/ffffff?text=Image+Loading+Error';" alt="吉貝沙尾的清澈海水">
+                </div>
+                <div class="col-md-6 order-md-2 mt-4 mt-md-0">
+                    <h3 class="fw-bold text-success">吉貝島嶼：夢幻沙尾與挑戰地標</h3>
+                    <span class="badge bg-success mb-3 me-2">#水清澈見底</span>
+                    <span class="badge bg-dark mb-3">#最醜地標留念</span>
+                    <p>吉貝島擁有我見過最漂亮的沙灘，特別是著名的吉貝沙尾。海水清澈到不可思議，低頭就能清楚看到自己的腳在海裡，光是踏浪就超滿足！這裡絕對是水上活動的天堂。</p>
+                    <p>環島時，別忘了挑戰一下當地獨特的景點：東方龍馬。雖然有人戲稱它是「當地最醜地標」，但正是這種充滿爭議的風格，讓它成了有趣的拍照留念地！</p>
+                    <a href="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292837_0.jpg" target="_blank" class="btn btn-sm btn-outline-success mt-2">查看吉貝石滬群</a>
+                </div>
+            </div>
+
+            <h3 class="fw-bold text-center text-info-dark mb-4 mt-5 border-top pt-5">— 跳島風景照片日記 —</h3>
+            <div class="row g-3 mb-5">
+                
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-info">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289818_0.jpg" class="card-img-top photo-gallery-img" alt="東吉嶼海景">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-info-dark fw-bold">東吉嶼：無邊際的湛藍</h5>
+                            <p class="card-text small text-muted">在台灣的邊陲，感受海洋最純粹、最令人屏息的藍色。這片海，會讓你相信世界上沒有憂愁。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-info">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292830.jpg" class="card-img-top photo-gallery-img" alt="東吉嶼街景">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-info-dark fw-bold">將軍島：薰衣草森林</h5>
+                            <p class="card-text small text-muted">前往東吉嶼的途中，會經過一個奇特的角落——一片被戲稱為「薰衣草森林」的夢幻海域。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-info">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292839_0.jpg" class="card-img-top photo-gallery-img" alt="西吉嶼藍海">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-info-dark fw-bold">西吉嶼：秘境藍洞的夢幻海域</h5>
+                            <p class="card-text small text-muted">搭船環繞，親眼見證被稱為「灶籠」的藍洞。那抹由光線、岩壁和海水交織出的奇幻藍色，絕對是澎湖最難忘的秘境。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-info">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292814_0.jpg" class="card-img-top photo-gallery-img" alt="東吉嶼燈塔">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-info-dark fw-bold">東吉嶼燈塔：守護大海的孤寂</h5>
+                            <p class="card-text small text-muted">純白的燈塔，在島嶼的最高點，日復一日地守護著來往的船隻，是海島旅程中不可或缺的指標。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-info">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292813_0.jpg" class="card-img-top photo-gallery-img" alt="東吉嶼日本遺址">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-info-dark fw-bold">東吉嶼：歷史遺址的滄桑感</h5>
+                            <p class="card-text small text-muted">在荒煙蔓草中尋找前人留下的印記，感受歷史的厚重與海島歲月的變遷。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-warning">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292898.jpg" class="card-img-top photo-gallery-img" alt="桶盤小路">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-warning fw-bold">桶盤嶼：海風輕拂的浪漫小徑</h5>
+                            <p class="card-text small text-muted">繞著桶盤嶼，走在這條海邊小路上，腳下是玄武岩，眼前是廣闊海景，每一刻都值得駐足。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-warning">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292809_0.jpg" class="card-img-top photo-gallery-img" alt="北迴歸線地標">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-warning fw-bold">虎井嶼：跨越北迴歸線的瞬間</h5>
+                            <p class="card-text small text-muted">在虎井島上，我們穿越了地理的界線。別忘了跟這個特別的地標合影留念，證明你來過南北的交界！</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-success">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292806_0.jpg" class="card-img-top photo-gallery-img" alt="吉貝沙尾美景">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-success fw-bold">吉貝沙尾：清澈見底的玻璃海</h5>
+                            <p class="card-text small text-muted">彎月形的沙尾，海水呈現夢幻般的漸層，腳下的沙灘白淨柔軟，是澎湖最頂級的沙灘體驗，水上活動的天堂。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow rounded-3 border-success">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292807_0.jpg" class="card-img-top photo-gallery-img" alt="東方龍馬側面">
+                        <div class="card-body p-3">
+                            <h5 class="card-title text-success fw-bold">吉貝：在地獨特的東方龍馬</h5>
+                            <p class="card-text small text-muted">雖然外型充滿話題性，但它確實是吉貝的代表地標之一。這種充滿爭議的美感，也成了旅行中讓人會心一笑的樂趣。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="daily-life" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-secondary mb-5"><i class="bi bi-sun-fill me-2"></i>澎湖本島日常：人文與秘境探索</h2>
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292848_0.jpg" class="card-img-top" alt="二崁古厝">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">二崁古厝：清閒的人文風景</h4>
+                            <p class="card-text">最喜歡二崁古厝清閒又充滿人文的風景，這裡完整保留了傳統閩南式建築風格，漫步其中彷彿時光倒流，可以靜靜地享受海島慢活的氣息。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292822_0.jpg" class="card-img-top" alt="外垵漁港小希臘">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">外垵漁港：澎湖小希臘</h4>
+                            <p class="card-text">外垵漁港擁有「澎湖小希臘」的美稱，潔白的房舍沿著山坡而建，面對湛藍的海灣，景色優美又震撼人心，是攝影愛好者必訪的秘境。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292826_0.jpg" class="card-img-top" alt="鯨魚洞">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">鯨魚洞：荒野自然的震撼</h4>
+                            <p class="card-text">在西嶼，被海風侵蝕形成的鯨魚洞，展現了自然的鬼斧神工。站在洞口感受海浪拍打的氣勢，是一種荒野且充滿原始力量的震撼體驗。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289815_0.jpg" class="card-img-top" alt="澎湖跨海大橋">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">跨海大橋與隘門沙灘</h4>
+                            <p class="card-text">騎著機車橫越澎湖跨海大橋，是每位旅人的共同回憶。此外，隘門沙灘的沙質細軟，非常適合悠閒散步或進行水上活動。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/289821_0.jpg" class="card-img-top" alt="觀音亭傍晚">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">觀音亭：最漂亮的傍晚</h4>
+                            <p class="card-text">如果時間允許，一定要來觀音亭欣賞夕陽！黃昏時分的景色美到令人窒息，無論是拍照還是靜靜地享受那份寧靜，都是本島最棒的享受。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 shadow rounded-3 border-0">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292829.jpg" class="card-img-top" alt="澎湖天后宮">
+                        <div class="card-body">
+                            <h4 class="card-title text-secondary fw-bold">澎湖天后宮：最古老信仰</h4>
+                            <p class="card-text">作為台灣歷史最悠久的天后宮之一，這裡不僅是馬公市的信仰中心，更是見證歷史的活教材。附近還有南寮古厝和風櫃洞，能體驗不同層次的澎湖文化。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2 mt-5 border-top pt-4">
+                <h3 class="text-secondary mb-3"><i class="bi bi-images me-2"></i>本島其他迷人角落</h3>
+                <div class="col-6 col-md-3">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292817_0.jpg" class="img-fluid rounded shadow-sm photo-gallery-img" alt="南寮古厝人文氣息">
+                    <p class="text-center small mt-2">南寮古厝：純樸的人文氣息</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292818_0.jpg" class="img-fluid rounded shadow-sm photo-gallery-img" alt="風櫃洞的海">
+                    <p class="text-center small mt-2">風櫃洞：浪花濤濤</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292824_0.jpg" class="img-fluid rounded shadow-sm photo-gallery-img" alt="澎湖本島最醜地標 1">
+                    <p class="text-center small mt-2">本島最醜地標:花枝妹</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292825_0.jpg" class="img-fluid rounded shadow-sm photo-gallery-img" alt="澎湖本島最醜地標 2">
+                    <p class="text-center small mt-2">本島最醜地標:城前鮮蚵</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food-notes" class="section-padding">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold text-danger mb-5"><i class="bi bi-cup-hot-fill me-2"></i>澎湖美食筆記：小幫手的私藏清單</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292833_0.jpg" class="card-img-top" alt="富園小吃南瓜海鮮麵疙瘩">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">富園小吃：必吃南瓜海鮮麵疙瘩</h4>
+                            <p class="card-text">在澎湖必吃的暖心美食！南瓜的甜融入海鮮的鮮，麵疙瘩Q彈有嚼勁，暖胃又滿足。記得也要嚐嚐他們的海鮮金瓜炒米粉！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292847_0.jpg" class="card-img-top" alt="玉冠嫩仙草">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">火紅的玉冠嫩仙草與冰</h4>
+                            <p class="card-text">說到澎湖消暑，絕對不能少了玉冠！它的嫩仙草口感滑順細緻，配上豐富的配料，是炎炎夏日裡的救贖。排隊人潮證明了它的高人氣！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292849_0.jpg" class="card-img-top" alt="大池炸粿與鯊魚排">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">大池炸粿：在地人下午茶</h4>
+                            <p class="card-text">酥脆的炸粿和特別的鯊魚排，是澎湖下午茶的經典！一口咬下，滿滿的在地風味，油而不膩，是體驗在地生活的美味選擇。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292843_0.jpg" class="card-img-top" alt="毛毛的店鮮蚵肉燥飯">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">毛毛的店：鮮蚵肉燥飯</h4>
+                            <p class="card-text">將肥美的鮮蚵與香噴噴的肉燥飯結合，這份獨特的風味只有在澎湖才能吃到！簡單卻充滿海味的在地美食，絕對不能錯過。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292852_0.jpg" class="card-img-top" alt="黑產特產行海菜抓餅">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">黑產特產行：海味小吃三寶</h4>
+                            <p class="card-text">特色美食海菜抓餅、紫菜香腸、海菜貢丸！海菜的清新味道融入日常小吃，特別是海菜抓餅，鹹香酥脆，是很棒的伴手禮和點心選擇。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292846_0.jpg" class="card-img-top" alt="仙人掌冰">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">仙人掌冰與隱藏版麵食</h4>
+                            <p class="card-text">酸甜的仙人掌冰是澎湖的標誌！此外，吉貝正甲壽司、海城上湯鮮魚粥，還有兩個番茄農場的超好吃酸辣粉，都是換宿期間挖掘的隱藏版美味。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292850_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">富園小吃：海鮮金瓜炒米粉</h4>
+                            <p class="card-text">將澎湖特產的金瓜煮爛後與米粉一同快炒，讓米粉吸飽了南瓜的天然甜味和海鮮的鮮美湯汁。口感濕潤香甜，是充滿古早味的在地暖心主食。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292842_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">兩個番茄農場：酸辣粉</h4>
+                            <p class="card-text">由澎湖在地農場新鮮番茄熬煮的創新湯底，打破了傳統酸辣粉的厚重感。湯頭酸爽開胃、清香撲鼻，即使在炎熱海島也能輕鬆享用。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292838_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">海城上湯鮮魚粥</h4>
+                            <p class="card-text">澎湖經典的「湯泡飯」形式，湯頭清澈鮮甜，每一口都充滿大海的滋味。搭配當日現撈的細嫩魚肉，是澎湖人早午餐的鮮美選擇。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292835_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">來吉貝必吃正甲壽司</h4>
+                            <p class="card-text">這是吉貝島上的隱藏版美食，提供新鮮且份量足夠的日式壽司。是水上活動後迅速補充體力的絕佳選擇，別忘了點選他們的「海鮮總匯」。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292851_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">阿三哥酒釀雞排</h4>
+                            <p class="card-text">台灣國民美食雞排，加入了獨特的「酒釀」醃製，創造出層次豐富的香醇風味。外酥內嫩，帶有微甜的酒香，是澎湖夜晚必嚐的在地宵夜。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 shadow-lg rounded-3 border-danger">
+                        <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292834_0.jpg" class="card-img-top" alt="海鮮金瓜炒米粉">
+                        <div class="card-body">
+                            <h4 class="card-title text-danger">吉貝小三店的仙草冰</h4>
+                            <p class="card-text">位於吉貝島上的消暑聖品。嫩滑的仙草配上豐富的配料，冰涼解渴。享受完沙灘和海風之後，來一碗是結束吉貝行程的完美句點。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work-exchange" class="section-padding bg-info text-white">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5"><i class="bi bi-person-workspace me-2"></i>打工換宿日記：從旅客變島民</h2>
+            <div class="row align-items-center">
+                <div class="col-md-5 mb-4 mb-md-0">
+                     <img src="https://taiwan-islandtravel.org/wp-content/uploads/2026/01/292900.jpg" class="img-fluid rounded-3 shadow-lg" alt="打工換宿團隊合照">
+                </div>
+                <div class="col-md-7">
+                    <p class="lead mb-4">我的換宿生活並非完全浪漫，它充滿了汗水、學習和成長。以下是我在民宿中，既是小幫手也是旅人的真實任務與心得。</p>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <h3 class="fw-bold"><i class="bi bi-gear-fill me-2"></i>房務與效率</h3>
+                            <p>每天與時間賽跑，在旅客退房後迅速完成床單清洗、消毒和房間佈置。這讓我訓練出對細節的高度要求和超強的執行力。</p>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <h3 class="fw-bold"><i class="bi bi-people-fill me-2"></i>社交與陪伴</h3>
+                            <p>我扮演民宿的「氣氛營造者」和在地嚮導，與來自不同背景的旅客交流，分享在地資訊。這讓我的溝通能力突飛猛進，也結識了許多朋友。</p>
+                        </div>
+                        <div class="col-12">
+                            <h3 class="fw-bold"><i class="bi bi-star-fill me-2"></i>最大的收穫</h3>
+                            <p>學會了在喧囂中保持內心的平靜，享受海島的「慢」生活哲學。這趟旅程遠超於工作本身，它是一次對生活的深度探索。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#home" class="btn btn-light btn-lg rounded-pill shadow">回到頂部 <i class="bi bi-arrow-up-circle-fill ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2025 我的澎湖打工換宿日記 | 專題製作 | 使用 Bootstrap 5.0.0</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
