@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>保庇燈｜訪談整理與待辦事項</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --border: rgba(30,25,15,0.10);
+    --text: #2b2622;
+    --muted: #8a8175;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Noto Sans TC', sans-serif;
+    line-height:1.7;
+    padding:0 0 80px;
+  }
+  h1,h2,h3{font-family:'Noto Serif TC', serif; margin:0;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+
+  header{padding:48px 0 28px; text-align:center;}
+  .eyebrow{
+    font-size:13px; letter-spacing:0.12em; color:#b54a3c;
+    text-transform:uppercase; margin-bottom:14px; font-weight:700;
+  }
+  header h1{font-size:clamp(26px,4vw,38px); font-weight:700; color:var(--text);}
+  header .sub{color:var(--muted); font-size:14px; margin-top:10px;}
+
+  .tabnav{
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    margin:28px 0 32px; padding:0 4px;
+  }
+  .tab-btn{
+    font-family:'Noto Sans TC',sans-serif; font-size:14.5px; font-weight:700;
+    padding:10px 18px; border-radius:999px; cursor:pointer;
+    border:1.5px solid var(--accent); background:#fff; color:var(--accent);
+    display:flex; align-items:center; gap:8px; transition:all .2s ease;
+  }
+  .tab-btn .chip{
+    font-size:12px; font-weight:700; background:var(--accent-soft); color:var(--accent);
+    padding:1px 7px; border-radius:999px;
+  }
+  .tab-btn.active{background:var(--accent); color:#fff;}
+  .tab-btn.active .chip{background:rgba(255,255,255,0.28); color:#fff;}
+  .tab-btn:hover{opacity:0.88;}
+
+  .category{
+    display:none;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-top:5px solid var(--accent);
+    border-radius:14px;
+    padding:26px 26px 22px;
+  }
+  .category.active{display:block;}
+
+  .cat-head{margin-bottom:6px;}
+  .cat-title{font-size:22px; font-weight:700; color:var(--accent);}
+  .cat-desc{font-size:14.5px; color:var(--muted); margin-top:6px; margin-bottom:18px;}
+
+  .cat-progress-row{
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .cat-bar{
+    flex:1; height:6px; background:var(--accent-soft); border-radius:3px; overflow:hidden;
+  }
+  .cat-bar-fill{height:100%; background:var(--accent); width:0%; transition:width .35s ease;}
+  .cat-progress-text{font-size:13px; color:var(--accent); font-weight:700; white-space:nowrap;}
+
+  ul.items{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+  .item{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:11px 8px; border-radius:8px; cursor:pointer;
+    transition:background .2s ease;
+  }
+  .item:hover{background:var(--accent-soft);}
+  .item input{display:none;}
+  .item .checkbox{
+    flex:0 0 auto; width:19px; height:19px; border-radius:50%;
+    border:1.8px solid var(--accent); margin-top:2px; transition:all .2s ease;
+  }
+  .item input:checked + .checkbox{background:var(--accent);}
+  .item-text{font-size:15px; flex:1;}
+  .item input:checked ~ .item-text{color:var(--muted); text-decoration:line-through; text-decoration-color:var(--muted);}
+  .tag{
+    display:inline-block; font-size:11.5px; color:var(--accent);
+    border:1px solid var(--accent); border-radius:20px;
+    padding:1px 8px; margin-left:8px; white-space:nowrap;
+  }
+
+  .note-box{
+    background:#fff; border:1px dashed var(--border);
+    border-radius:12px; padding:16px 20px; margin:28px 0 8px;
+    font-size:13.5px; color:var(--muted);
+  }
+  .note-box b{color:var(--text);}
+
+  footer{text-align:center; margin-top:32px;}
+  .reset-btn{
+    background:none; border:1px solid var(--border); color:var(--muted);
+    font-family:'Noto Sans TC',sans-serif; font-size:13px;
+    padding:9px 20px; border-radius:20px; cursor:pointer;
+    transition:all .2s ease;
+  }
+  .reset-btn:hover{background:#fff; color:#b54a3c; border-color:#b54a3c;}
+
+  @media (max-width:600px){
+    .tabnav{gap:6px;}
+    .tab-btn{font-size:13px; padding:8px 14px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">保庇燈 Bobee Light · 程豐資通內部資料</div>
+    <h1>訪談整理與待辦事項</h1>
+    <div class="sub">資料來源：7/2 程豐開會訪談整理　·　點擊上方分類，逐頁完成檢核</div>
+  </header>
+
+  <div class="tabnav" id="tabnav">
+    <button class="tab-btn" data-target="A" style="--accent:#b54a3c; --accent-soft:#f3e4e0;">品牌定位 <span class="chip" data-chip="A">0/3</span></button>
+    <button class="tab-btn" data-target="B" style="--accent:#3b6e8f; --accent-soft:#e3eef3;">SEO 架構 <span class="chip" data-chip="B">0/3</span></button>
+    <button class="tab-btn" data-target="C" style="--accent:#3f7a5d; --accent-soft:#e4efe8;">案例包裝 <span class="chip" data-chip="C">0/4</span></button>
+    <button class="tab-btn" data-target="D" style="--accent:#c08a2e; --accent-soft:#f6ecd9;">八大模組文案 <span class="chip" data-chip="D">0/9</span></button>
+    <button class="tab-btn" data-target="E" style="--accent:#7a4b8a; --accent-soft:#efe4f2;">客群人物誌 <span class="chip" data-chip="E">0/3</span></button>
+    <button class="tab-btn" data-target="F" style="--accent:#55524a; --accent-soft:#ededea;">待確認事項 <span class="chip" data-chip="F">0/4</span></button>
+  </div>
+
+  <section class="category" data-cat="A" style="--accent:#b54a3c; --accent-soft:#f3e4e0;">
+    <div class="cat-head">
+      <div class="cat-title">品牌定位與市場素材</div>
+      <div class="cat-desc">這頁要做：把「智慧廟宇大平台」的定位說法與競品切角寫清楚，作為所有內容的立論基礎。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/3</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="a1"><label class="checkbox" for="a1"></label><span class="item-text">撰寫「已簽約 2 萬 / 10 萬盞燈」大型案場包裝素材<span class="tag">暫不揭露廟名</span></span></li>
+      <li class="item"><input type="checkbox" id="a2"><label class="checkbox" for="a2"></label><span class="item-text">確認「智慧廟宇大平台」與「數位光明燈」主副產品說法</span></li>
+      <li class="item"><input type="checkbox" id="a3"><label class="checkbox" for="a3"></label><span class="item-text">盤點文玄／正大光明／聖文三大競品的弱點對應內容切角</span></li>
+    </ul>
+  </section>
+
+  <section class="category" data-cat="B" style="--accent:#3b6e8f; --accent-soft:#e3eef3;">
+    <div class="cat-head">
+      <div class="cat-title">SEO 與網站內容架構</div>
+      <div class="cat-desc">這頁要做：規劃內容地圖與導流路徑，確保周邊功能的流量最終導向數位光明燈。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/3</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="b1"><label class="checkbox" for="b1"></label><span class="item-text">規劃同一 Domain 下的完整內容地圖與分類</span></li>
+      <li class="item"><input type="checkbox" id="b2"><label class="checkbox" for="b2"></label><span class="item-text">訂出 B2B 與 B2C 內容版位配置與流量分配比例</span></li>
+      <li class="item"><input type="checkbox" id="b3"><label class="checkbox" for="b3"></label><span class="item-text">建立痛點文章導流至光明燈產品的內部連結策略</span></li>
+    </ul>
+  </section>
+
+  <section class="category" data-cat="C" style="--accent:#3f7a5d; --accent-soft:#e4efe8;">
+    <div class="cat-head">
+      <div class="cat-title">案例包裝（取代實績頁）</div>
+      <div class="cat-desc">這頁要做：用故事取代實績列表，避免被競品鎖定，同時維繫合作宮廟的關係。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/4</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="c1"><label class="checkbox" for="c1"></label><span class="item-text">完成奉天宮等 5 間合作宮廟的專訪安排</span></li>
+      <li class="item"><input type="checkbox" id="c2"><label class="checkbox" for="c2"></label><span class="item-text">撰寫神明故事與信眾故事文案<span class="tag">故事60% / 產品40%</span></span></li>
+      <li class="item"><input type="checkbox" id="c3"><label class="checkbox" for="c3"></label><span class="item-text">取得合作宮廟的案例使用授權</span></li>
+      <li class="item"><input type="checkbox" id="c4"><label class="checkbox" for="c4"></label><span class="item-text">規劃提供合作宮廟 SEO 流量數據回饋機制，維繫友好關係</span></li>
+    </ul>
+  </section>
+
+  <section class="category" data-cat="D" style="--accent:#c08a2e; --accent-soft:#f6ecd9;">
+    <div class="cat-head">
+      <div class="cat-title">八大功能模組文案</div>
+      <div class="cat-desc">這頁要做：把每個功能模組轉譯成「廟方痛點解決方案」的文章素材。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/9</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="d1"><label class="checkbox" for="d1"></label><span class="item-text">廟務系統：手寫帳務與人工作業痛點文案</span></li>
+      <li class="item"><input type="checkbox" id="d2"><label class="checkbox" for="d2"></label><span class="item-text">數位光明燈：尋燈與遠端管理文案</span></li>
+      <li class="item"><input type="checkbox" id="d3"><label class="checkbox" for="d3"></label><span class="item-text">線上點燈：電子祝福卡／平安符素材設計</span></li>
+      <li class="item"><input type="checkbox" id="d4"><label class="checkbox" for="d4"></label><span class="item-text">能源管理：彙整各縣市節能補助資訊</span></li>
+      <li class="item"><input type="checkbox" id="d5"><label class="checkbox" for="d5"></label><span class="item-text">多媒體管理：等待 Daniel 提供 Demo 設備或現場影片素材</span></li>
+      <li class="item"><input type="checkbox" id="d6"><label class="checkbox" for="d6"></label><span class="item-text">AI 解籤：內容不揭露技術細節<span class="tag">待年底新聞稿</span></span></li>
+      <li class="item"><input type="checkbox" id="d7"><label class="checkbox" for="d7"></label><span class="item-text">環境監控：評估靈骨塔市場延伸頁面</span></li>
+      <li class="item"><input type="checkbox" id="d8"><label class="checkbox" for="d8"></label><span class="item-text">攝影監控：人流分析應用於繞境活動的文案</span></li>
+      <li class="item"><input type="checkbox" id="d9"><label class="checkbox" for="d9"></label><span class="item-text">攝影監控延伸：香油錢防盜 Kiosk 與廟務系統對帳整合文案</span></li>
+    </ul>
+  </section>
+
+  <section class="category" data-cat="E" style="--accent:#7a4b8a; --accent-soft:#efe4f2;">
+    <div class="cat-head">
+      <div class="cat-title">客群人物誌素材</div>
+      <div class="cat-desc">這頁要做：針對決策者與信眾的不同輪廓，準備對應的文案切角。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/3</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="e1"><label class="checkbox" for="e1"></label><span class="item-text">總幹事 Persona：開源節流痛點文案</span></li>
+      <li class="item"><input type="checkbox" id="e2"><label class="checkbox" for="e2"></label><span class="item-text">宮廟二代 Persona：廣告投放與內容包裝</span></li>
+      <li class="item"><input type="checkbox" id="e3"><label class="checkbox" for="e3"></label><span class="item-text">信眾 Persona：核心信眾（簡化操作）與潛在信眾（線上代點）分眾文案</span></li>
+    </ul>
+  </section>
+
+  <section class="category" data-cat="F" style="--accent:#55524a; --accent-soft:#ededea;">
+    <div class="cat-head">
+      <div class="cat-title">待確認事項</div>
+      <div class="cat-desc">這頁要做：追蹤還沒拍板的決策，避免內容製作到一半才發現方向錯了。</div>
+    </div>
+    <div class="cat-progress-row"><div class="cat-bar"><div class="cat-bar-fill" data-bar></div></div><div class="cat-progress-text" data-progress>0/4</div></div>
+    <ul class="items">
+      <li class="item"><input type="checkbox" id="f1"><label class="checkbox" for="f1"></label><span class="item-text">確認「一燈 150 元」定價是否公開呈現</span></li>
+      <li class="item"><input type="checkbox" id="f2"><label class="checkbox" for="f2"></label><span class="item-text">表單後端串接（線上點燈／節能補助諮詢）</span></li>
+      <li class="item"><input type="checkbox" id="f3"><label class="checkbox" for="f3"></label><span class="item-text">促銷方案細節最終確認</span></li>
+      <li class="item"><input type="checkbox" id="f4"><label class="checkbox" for="f4"></label><span class="item-text">追蹤年底 AI 解籤新聞稿發布時程（松山廟＋資策會），屆時同步規劃 SEO 露出</span></li>
+    </ul>
+  </section>
+
+  <div class="note-box">
+    <b>內部參考</b>：目前市面光明燈成交價不低於一盞 300 元；程豐主打「鄉村包圍城市」策略，鎖定 200–600 盞燈規模的中小型宮廟，目前市場數位光明燈滲透率約 10%，成長目標 15%。排除對象為宗教狂熱、堅持親臨現場的極端傳統長輩。此段落僅供內容產出時對照，不列入待辦計算。
+  </div>
+
+  <footer>
+    <button class="reset-btn" onclick="resetAll()">清空所有勾選</button>
+  </footer>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const pages = document.querySelectorAll('.category');
+
+  function showTab(id){
+    tabs.forEach(t=> t.classList.toggle('active', t.dataset.target===id));
+    pages.forEach(p=> p.classList.toggle('active', p.dataset.cat===id));
+    try{ localStorage.setItem('bobee-todo-tab', id); }catch(e){}
+  }
+
+  tabs.forEach(t=> t.addEventListener('click', ()=> showTab(t.dataset.target)));
+
+  function updateProgress(){
+    document.querySelectorAll('.category').forEach(cat=>{
+      const id = cat.dataset.cat;
+      const boxes = cat.querySelectorAll('input[type=checkbox]');
+      const lit = cat.querySelectorAll('input[type=checkbox]:checked').length;
+      const total = boxes.length;
+      cat.querySelector('[data-progress]').textContent = lit + '/' + total;
+      cat.querySelector('[data-bar]').style.width = (total? (lit/total*100):0) + '%';
+      const chip = document.querySelector('[data-chip="'+id+'"]');
+      if(chip) chip.textContent = lit + '/' + total;
+    });
+  }
+
+  function saveState(){
+    const state = {};
+    document.querySelectorAll('input[type=checkbox]').forEach(cb=> state[cb.id] = cb.checked);
+    try{ localStorage.setItem('bobee-todo-state', JSON.stringify(state)); }catch(e){}
+  }
+
+  function loadState(){
+    try{
+      const raw = localStorage.getItem('bobee-todo-state');
+      if(!raw) return;
+      const state = JSON.parse(raw);
+      Object.keys(state).forEach(id=>{
+        const cb = document.getElementById(id);
+        if(cb) cb.checked = state[id];
+      });
+    }catch(e){}
+  }
+
+  function resetAll(){
+    if(!confirm('確定要清空所有已勾選的項目嗎？')) return;
+    document.querySelectorAll('input[type=checkbox]').forEach(cb=> cb.checked = false);
+    saveState();
+    updateProgress();
+  }
+
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change', ()=>{ saveState(); updateProgress(); });
+  });
+
+  loadState();
+  updateProgress();
+
+  let savedTab = 'A';
+  try{ savedTab = localStorage.getItem('bobee-todo-tab') || 'A'; }catch(e){}
+  showTab(savedTab);
+</script>
+</body>
+</html>
